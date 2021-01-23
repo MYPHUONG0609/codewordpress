@@ -98,7 +98,7 @@ if (!function_exists('thachpham_thumbnail')) {
  		<?php endif ;?> 
 <?php }
  }
-
+/* hàm hiển thị dữ liệu bài viết */
 if (!function_exists('thachpham_entry_meta')) {
 	function thachpham_entry_meta() { ?>
 		<?php if (!is_page()) :?>
