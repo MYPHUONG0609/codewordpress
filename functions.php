@@ -98,7 +98,7 @@ if (!function_exists('thachpham_thumbnail')) {
  		<?php endif ;?> 
 <?php }
  }
-/* hàm hiển thị dữ liệu bài viết */
+
 if (!function_exists('thachpham_entry_meta')) {
 	function thachpham_entry_meta() { ?>
 		<?php if (!is_page()) :?>
@@ -106,7 +106,7 @@ if (!function_exists('thachpham_entry_meta')) {
 				<?php 
 				printf( __('<span class="author"> Posted by %1$s ','thachpham'),
 				get_the_author() );
-				printf( __('<span class="date-published"> at by %1$s ','thachpham'),
+				printf( __('<span class="date-published"> at  %1$s ','thachpham'),
 				get_the_date() ) ;
 				printf( __('<span class="category"> in %1$s ','thachpham'),
 				get_the_category_list(',') );
@@ -114,9 +114,9 @@ if (!function_exists('thachpham_entry_meta')) {
 				echo '<span class="meta-reply">';
 				comments_popup_link(
 					__('Leave a comment','thachpham'),
-					__('one comment','thachpham'),
+					__('One comment','thachpham'),
 					__('% comments','thachpham'),
-					__('read all comments','thachpham'));
+					__('Read all comments','thachpham'));
 					
 
 				
@@ -128,3 +128,26 @@ if (!function_exists('thachpham_entry_meta')) {
 
 <?php 	}
 }
+/* entry_content=hiển thị nội dung bài viết */
+if (!function_exists('thachpham_entry_content')) {
+	function thachpham_entry_content() {
+		if (!is_single()) {
+			the_excerpt();
+		} 
+		else {
+			the_content();
+			/* phân trang trong single */
+			$links_pages= array(
+				'before' => __('<p>Page','thachpham'),
+				'after' => ('</p'),
+				'nextpagelink' => __('Next page','thachpham'),
+				'previouspage' => __('Previous Page','thachpham'));
+			wp_link_pages($link_pages);
+		}
+
+	}
+}
+function thachpham_readmore() {
+	return '<a class="read-more" href="	'.get_permalink(get_the_ID() ).' ">' .__('...[Read More]','thachpham').'</a>';
+}
+add_filter('excerpt_more','thachpham_readmore');
