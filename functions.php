@@ -151,3 +151,12 @@ function thachpham_readmore() {
 	return '<a class="read-more" href="	'.get_permalink(get_the_ID() ).' ">' .__('...[Read More]','thachpham').'</a>';
 }
 add_filter('excerpt_more','thachpham_readmore');
+if (!function_exists('thachpham_entry_tag') {
+	function thachpham_entry_tag() {
+		if (has_tag()):
+			echo'<div class="entry-tag">';
+			printf(__('Tagged in %1$s','thachpham'),get_the_tag_list('',','));
+			echo '</div>';
+		endif;
+	}
+}
