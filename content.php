@@ -1,5 +1,5 @@
 <article id="post-<?php the_ID();?>" 
-	<?php post_class() ; ?>
+	<?php post_class() ; ?>>
 	<div class="entry-thumbnail">
 		<?php thachpham_thumbnail('thumbnail');?> 
 		 </div>
@@ -9,7 +9,7 @@
 			</div>
 	<div class="entry-content">
 		<?php thachpham_entry_content();?>
-		<?php (is_single()) ? thachpham_entry_tag(): '');?>
+		<?php (is_single() ? thachpham_entry_tag(): '');?>
 	</div>
 	
 </article>

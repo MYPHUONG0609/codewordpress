@@ -1,5 +1,5 @@
 <article id="post-<?php the_ID();?>" 
-	<?php post_class() ; ?>
+	<?php post_class() ; ?>>
 	
 	<div class="entry-header"> 
 		<?php thachpham_entry_header();?>
