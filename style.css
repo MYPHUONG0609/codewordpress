@@ -171,6 +171,7 @@ table,table tr ,table td{
 .post .entry-content {
         text-align: justify;
 }
+/* nút read-more */
 .post a.read-more {
         display: table;
         -moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
@@ -210,7 +211,7 @@ table,table tr ,table td{
         position:relative;
         top:1px;
 }
-
+/* trang single */
 .single .post .entry-content,
 .single .post .entry-header {
         padding-left: 0;
